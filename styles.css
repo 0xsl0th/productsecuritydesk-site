@@ -495,6 +495,104 @@ h3 {
   border-radius: 50%;
 }
 
+.sample-section {
+  padding: 110px 0;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.sample-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(54px, 8vw, 120px);
+}
+
+.sample-preview {
+  display: block;
+  width: min(100%, 360px);
+  justify-self: center;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 24px 60px rgba(23, 25, 24, 0.18);
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.sample-preview:hover {
+  box-shadow: 0 28px 70px rgba(23, 25, 24, 0.24);
+  transform: translateY(-3px);
+}
+
+.sample-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sample-copy {
+  max-width: 620px;
+}
+
+.sample-copy h2 {
+  max-width: 560px;
+  margin-bottom: 22px;
+}
+
+.sample-lede {
+  max-width: 590px;
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.sample-list {
+  margin: 0 0 30px;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.sample-list li {
+  position: relative;
+  padding: 13px 0 13px 24px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 620;
+}
+
+.sample-list li::before {
+  position: absolute;
+  top: 1.25em;
+  left: 2px;
+  width: 8px;
+  height: 2px;
+  content: "";
+  background: var(--red);
+}
+
+.sample-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.sample-actions span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.sample-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .fit-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -816,9 +914,14 @@ h3 {
 
   .split-heading,
   .terms-grid,
-  .faq-layout {
+  .faq-layout,
+  .sample-layout {
     grid-template-columns: 1fr;
     gap: 38px;
+  }
+
+  .sample-preview {
+    width: min(100%, 330px);
   }
 
   .deliverable-grid {
@@ -932,8 +1035,31 @@ h3 {
   }
 
   .section,
-  .contact-section {
+  .contact-section,
+  .sample-section {
     padding: 76px 0;
+  }
+
+  .sample-layout {
+    gap: 44px;
+  }
+
+  .sample-preview {
+    width: min(88%, 300px);
+  }
+
+  .sample-lede {
+    font-size: 16px;
+  }
+
+  .sample-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sample-actions .button {
+    width: 100%;
   }
 
   .section-heading {
