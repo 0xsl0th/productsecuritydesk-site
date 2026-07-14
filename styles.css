@@ -222,6 +222,17 @@ h3 {
   background: var(--paper);
 }
 
+.button-outline {
+  color: var(--white);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.48);
+}
+
+.button-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--white);
+}
+
 .button-small {
   min-height: 42px;
   padding: 9px 16px;
@@ -709,6 +720,13 @@ h3 {
   font-size: 18px;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
 .copy-status {
   display: block;
   min-height: 22px;
@@ -923,6 +941,11 @@ h3 {
   .terms-copy > p:last-child,
   .contact-inner > p:not(.eyebrow) {
     font-size: 16px;
+  }
+
+  .contact-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .deliverable-grid,
