@@ -2,24 +2,21 @@
 
 Dependency-free static landing page for the initial CRA Reporting Readiness Sprint.
 
-Production URL: `https://productsecuritydesk.com`
+Production URL: `http://productsecuritydesk.com` until the GitHub Pages TLS certificate is active.
 
 The public GitHub Pages source is the separate `0xsl0th/productsecuritydesk-site` repository. The wider business workspace remains private.
 
-## Preview
+## Local preview
 
-From the repository root:
+From the directory containing `index.html`:
 
 ```sh
-python3 -m http.server 8080 --directory site
+python3 -m http.server 8080
 ```
 
 Then open `http://localhost:8080`.
 
-## Before public deployment
+## Deployment notes
 
-- Confirm that `hello@productsecuritydesk.com` receives mail or forwards to the founder.
-- Replace the email CTA with the approved scheduling link when available.
-- Update `privacy.html` with the selected hosting, email, scheduling, and analytics providers.
-- Add the final canonical URL and social-sharing image metadata after DNS is configured.
+- Switch the canonical and social-sharing URLs to HTTPS after GitHub Pages issues the custom-domain certificate.
 - Keep analytics and contact forms disabled until their privacy and data-handling terms are approved.
