@@ -249,7 +249,8 @@
           <p class="eyebrow eyebrow-light">Next step</p>
           <h2 id="contact-title">Start with a 20-minute fit call.</h2>
           <p>We will confirm the product boundary, current EU pressure, reporting workflow, and minimum evidence required. If the sprint is not appropriate, we will say so.</p>
-          <a class="button button-primary" href="mailto:hello@productsecuritydesk.com?subject=CRA%20Reporting%20Readiness%20Sprint">Email hello@productsecuritydesk.com</a>
+          <button class="button button-primary" type="button" data-copy-email="hello@productsecuritydesk.com">Copy hello@productsecuritydesk.com</button>
+          <span class="copy-status" data-copy-status role="status" aria-live="polite">Copy this address into your email app.</span>
         </div>
       </section>
     </main>
@@ -266,7 +267,7 @@
         <div class="footer-links">
           <a href="privacy.html">Privacy</a>
           <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-summary" rel="noreferrer">CRA overview</a>
-          <a href="mailto:hello@productsecuritydesk.com">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
       <div class="shell footer-legal">
@@ -274,5 +275,42 @@
         <p>Readiness services only. No legal advice, certification, conformity assessment, or compliance guarantee.</p>
       </div>
     </footer>
+    <script>
+      (() => {
+        const button = document.querySelector("[data-copy-email]");
+        const status = document.querySelector("[data-copy-status]");
+
+        if (!button || !status) return;
+
+        const copyWithFallback = async (value) => {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(value);
+            return;
+          }
+
+          const field = document.createElement("textarea");
+          field.value = value;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.opacity = "0";
+          document.body.appendChild(field);
+          field.select();
+          const copied = document.execCommand("copy");
+          field.remove();
+          if (!copied) throw new Error("Copy command failed");
+        };
+
+        button.addEventListener("click", async () => {
+          const email = button.dataset.copyEmail;
+          try {
+            await copyWithFallback(email);
+            button.textContent = "Email address copied";
+            status.textContent = `Copied: ${email}`;
+          } catch {
+            status.textContent = `Copy failed. Select this address: ${email}`;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
