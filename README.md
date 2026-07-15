@@ -2,7 +2,7 @@
 
 Dependency-free static landing page for the initial CRA Reporting Readiness Sprint.
 
-Production URL: `http://productsecuritydesk.com` until the GitHub Pages TLS certificate is active.
+Production URL: `https://productsecuritydesk.com/`.
 
 The public GitHub Pages source is the separate `0xsl0th/productsecuritydesk-site` repository. The wider business workspace remains private.
 
@@ -18,5 +18,7 @@ Then open `http://localhost:8080`.
 
 ## Deployment notes
 
-- Switch the canonical and social-sharing URLs to HTTPS after GitHub Pages issues the custom-domain certificate.
-- Keep analytics and contact forms disabled until their privacy and data-handling terms are approved.
+- Umami Cloud analytics uses the European Union data region and website ID `20941052-39b3-4d0e-a211-5fc59ed00aa9`.
+- The tracker runs only on `productsecuritydesk.com` and `www.productsecuritydesk.com`, respects Do Not Track, and ignores URL fragments while retaining campaign query parameters.
+- Conversion events are `calendly-click`, `sample-report-open`, and `email-copy`. Their `location` property identifies the CTA placement.
+- Keep the privacy notice synchronized with any analytics, scheduling, hosting, or contact-flow changes.
